@@ -716,3 +716,45 @@
     width: 100vw;
     height: 100vh;
 }
+
+.del_dish{
+    width: 0px;
+    position: relative;
+    left: -41px;
+    color: white;
+    top: -63px;
+    font-size: 22px;
+    z-index: 10;
+}
+
+.add_category form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: calc(5vw - 1px);
+    margin-right: calc(5vw - 1px);
+    padding: 5vw;
+    border: 1px solid rgb(226, 226, 226);
+    box-shadow: 1px 3px 7px #a7a7a7;
+    border-radius: 20px;
+}
+.add_category form div{
+    width: 80vw;
+}
+
+.add_category form div .with_btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add_category form div button{
+    background-color: #FF971E;
+    height: 40px;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    font-size: 17px;
+}
