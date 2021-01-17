@@ -548,6 +548,13 @@
     border: 0;
 }
 
+.header img{
+    height: 100%;
+    width: 63px;
+    border: 0;
+    padding: 5px;
+}
+
 .header p{
     font-size: 20px;
     margin: 0;
@@ -757,4 +764,35 @@
     border-radius: 20px;
     border: none;
     font-size: 17px;
+}
+
+.table_img{
+    height: 33px;
+    width: 40px;
+    margin-right: 10px;
+}
+
+.table_img img{
+    height: 33px;
+    width: 40px;
+}
+
+.add_table{
+    border-color: #FF971E;
+    height: 40px;
+    color:  #FF971E;
+    border-radius: 20px;
+    font-size: 17px;
+    margin: 10px;
+}
+
+.del_table{
+    background-color: #FF971E;
+    height: 40px;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    font-size: 17px;
+    margin: 10px;
+    margin-top: 0px;
 }
