@@ -21,8 +21,6 @@ const MyRestaurant = () => {
     .then(function (response) {
         setMenu(response.data.restaurant.menu.length);
         setRoom(response.data.restaurant.room.length);
-        console.log(response.data.restaurant.menu.length);
-        console.log(response.data.restaurant.room.length);
         setUser(response.data.restaurant.title);
     })
     .catch(function (error) {
@@ -39,14 +37,12 @@ const MyRestaurant = () => {
   return (
     <>
         <div className="header">
-          <Button>
-            <LeftOutlined />
-          </Button>
+            <img src="/oliva_logo.png"></img>
           <p>{user}</p>
         </div>
         <div className="restaurants">
             <Link href={"/categories"}>
-                <Button className="item" style={{marginTop:10}}>
+                <Button className="item" style={{marginTop:10, height:75}}>
                     <div className="item_content">
                         <div className="img_div">
                             <img src="/logopart.png" width={50} height={50}/>
@@ -62,7 +58,7 @@ const MyRestaurant = () => {
                 </Button>
             </Link>
             <Link href={"/tables"}>
-                <Button className="item">
+                <Button className="item" style={{height:75}}>
                     <div className="item_content">
                         <div className="img_div">
                             <img src="/tablef.jpg" width={50} height={50}/>

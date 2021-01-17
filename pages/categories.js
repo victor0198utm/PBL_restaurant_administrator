@@ -28,8 +28,10 @@ const Categories = () => {
     })
     .then(function (response) {
       setDishes(response.data.restaurant.menu);
-      
-      console.log(response);
+      setUser(response.data.restaurant.title);
+      if(response.data.restaurant.menu.length == 0){
+        setMessage("No dishes");
+      }
     })
     .catch(function (error) {
       console.log(error); 
@@ -67,7 +69,6 @@ const Categories = () => {
   }
 
   const confirmDelete=(dishId)=>{
-    console.log(dishId);
     axios.post('http://localhost:3000/api/menuElement/remove',
     {
       "restaurantId": id,
@@ -92,21 +93,21 @@ const Categories = () => {
     <>
       <div className="menu">
         <div className="header">
-          <Button>
-            <LeftOutlined />
-          </Button>
-          <p>Oliva's menu</p>
+          <Link href={"/"}>
+            <Button>
+              <LeftOutlined />
+            </Button>
+          </Link>
+          <p>{user}'s menu</p>
         </div>
         <div className="c_list">
           {dishes.length == 0 && <p>{message}</p>}
           {dishes.length > 0 &&
             dishes.map(x=> {
             return (
-                  <Button className="m_c">
+                  <Button key={x._id} className="m_c">
                       <div className="overlay">
-                        <Link key={x._id} href={"/"}>
                           <img src={x.image}></img>
-                        </Link>
                         <Popconfirm onConfirm={e=>{confirmDelete(x._id);}} className="del_dish" title={"Delete " + x.title + "？"} okText="Yes" cancelText="No">
                           <CloseOutlined/>
                         </Popconfirm>
@@ -119,7 +120,7 @@ const Categories = () => {
             })
           }
           <div className="add_category">
-            <Form  form={form} name="control-hooks" onFinish={addDish}>
+            <Form form={form} name="control-hooks" onFinish={addDish}>
               <h2>Add a dish</h2>
               <Form.Item name="name" label="Name" rules={[{ required: true }]}>
                 <Input type="text"></Input>
