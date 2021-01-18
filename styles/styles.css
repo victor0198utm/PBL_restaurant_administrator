@@ -218,7 +218,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: calc(100vh - 36px);
+    height: calc(100vh - 160px);
 }
 
 .c_list{
@@ -239,7 +239,7 @@
     flex-direction: column;
     align-items: center;
     justify-self: flex-start;
-    margin-top: 15px;
+    margin-bottom: 15px;
     height: min-content;
     border: 0;
     padding: 0;
@@ -550,16 +550,21 @@
 
 .header img{
     height: 100%;
-    width: 63px;
+    width: 80px;
     border: 0;
     padding: 5px;
+    margin-left: 10px;
 }
 
 .header p{
     font-size: 20px;
     margin: 0;
-    margin-left: 25px;
+    margin-left: 10px;
     text-transform: uppercase;
+}
+
+.ant-tabs-nav{
+    padding-left: 17px;
 }
 
 /* restaurants page */
@@ -795,4 +800,52 @@
     font-size: 17px;
     margin: 10px;
     margin-top: 0px;
+}
+
+.one_order{
+    margin: 13px;
+    border-radius: 14px;
+    box-shadow: 0px 1px 5px -1px grey;
+    padding: 6px;
+}
+
+.dish{
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.dish input{
+    max-width: 30px;
+    height: 25px;
+}
+
+.dish p{
+    font-size: 24px;
+    margin: 0;
+    margin-left: 15px;
+}
+
+.one_order .buttons{
+    display: flex;
+    justify-content: center;
+}
+
+.one_order button{
+    font-size: 20px;
+    height: 40px;
+    margin: 10px;
+    height: 40px;
+    border-radius: 20px;
+}
+
+.activate{
+    background-color: #FF971E;
+    height: 40px;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    margin: 10px;
 }

@@ -11,13 +11,12 @@ import {useAppContext, setUser} from '../components/UserInfo'
 
 const Categories = () => {
   const axios = require('axios');
-  const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmNkNzBmNjk5NWMxZjM3OThjNmViNjIiLCJpYXQiOjE2MDc0NDA2MTJ9.ycPmdRVStLV0uI0TJqkVv9Fgy4eeWtkKjqVHV9g17Lc";
+  const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDA0YzY3YWJjNDZkOTRiYzBiZmUzNTkiLCJpYXQiOjE2MTA5MjYxMDd9.pUrhHHV7LrT_2W-T_aUKL21Uv3nnjEt5Tnhs6Q22g2s";
   const [categoriesMap, setCategoriesMap] = useState(new Map());
   const router = useRouter();
-  const [dishes, setDishes] = useState([]);
   const [categories, setCategories] = useState([]);
   const [message, setMessage] = useState("Loading..");
-  const {user, setUser, id} = useAppContext();
+  const {user, setUser, id, dishes, setDishes} = useAppContext();
   const [form] = Form.useForm();
 
 
@@ -92,14 +91,6 @@ const Categories = () => {
   return (
     <>
       <div className="menu">
-        <div className="header">
-          <Link href={"/"}>
-            <Button>
-              <LeftOutlined />
-            </Button>
-          </Link>
-          <p>{user}'s menu</p>
-        </div>
         <div className="c_list">
           {dishes.length == 0 && <p>{message}</p>}
           {dishes.length > 0 &&
@@ -144,7 +135,6 @@ const Categories = () => {
         </div>
         
       </div>
-      <Navbar/>
     </>
   )
 }
