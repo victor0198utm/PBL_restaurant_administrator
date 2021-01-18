@@ -7,10 +7,8 @@ import {useAppContext} from '../components/UserInfo'
 
 const Tables = () => {
   const axios = require('axios');
-  const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmNkNzBmNjk5NWMxZjM3OThjNmViNjIiLCJpYXQiOjE2MDc0NDA2MTJ9.ycPmdRVStLV0uI0TJqkVv9Fgy4eeWtkKjqVHV9g17Lc";
-  const [room, setRoom] = useState([]);
   const [loaded, setLoaded] = useState(false);
-  const {user, setUser, id} = useAppContext();
+  const {user, setUser, id, token, room, setRoom} = useAppContext();
 
   const loadTables = () =>{
     axios.post('http://localhost:3000/api/menu',
@@ -19,7 +17,6 @@ const Tables = () => {
     })
     .then(function (response) {
         setRoom(response.data.restaurant.room);
-        console.log(response.data.restaurant.room);
         setUser(response.data.restaurant.title);
     })
     .catch(function (error) {
@@ -57,8 +54,6 @@ const Tables = () => {
   }
 
   const confirmDelete=()=>{
-    console.log(room);
-    console.log(room[room.length-1]._id);
     axios.post('http://localhost:3000/api/tableRoom/remove',
     {
         "restaurantId": id,
@@ -79,14 +74,6 @@ const Tables = () => {
 
   return (
     <>
-        <div className="header">
-            <Link href={"/"}>
-            <Button>
-              <LeftOutlined />
-            </Button>
-          </Link>
-          <p>{user}'s tables</p>
-        </div>
         <div className="restaurants">
             {room.length > 0 &&
                 room.map((x, idx)=> {
@@ -98,7 +85,7 @@ const Tables = () => {
                         </div>
                         <div className="item_description">
                             <p className="name">TABLE {idx+1}</p>
-                            {x.users.length >= 0?<h5>{x.users.length} clients</h5>:<></>}
+                            {x.users.length >= 0?<h4>{x.users.length} clients</h4>:<></>}
                         </div>
                     </div>
                     <span>
@@ -123,7 +110,6 @@ const Tables = () => {
             </Popconfirm>
         </div>
         
-        <Navbar/>
     </>
   )
 }
